@@ -1,0 +1,21 @@
+<img data-ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>{{event.name}}
+            <button type="button" class="btn" ng-show="editable" ng-click="edit()">Edit</button>
+        </h2>
+    </div>
+</div>
+
+
+        <div><strong>Date:</strong> {{event.date}}</div>
+        <div><strong>Time:</strong> {{event.time}}</div>
+
+
+        <address>
+            <strong>Address:</strong><br/>
+            {{event.location.address}}<br/>
+            {{event.location.city}}, {{event.location.province}}
+        </address>
+    </div>

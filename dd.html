@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link type="image/x-icon" rel="icon" href="img/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="css/bg.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div ng-controller="EventController">
+    <div class="container" style="width: 1180px; background-color: #ddd;">
+        <div class="navbar">
+            <div class="navbar-pills">
+                <ul class="nav">
+                </ul>
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li><a href="partials/directives/eventDetails.html">Events</a></li>
+                        <li><a href="partials/editEvent.html">Create Event</a></li>
+                        <li><a href="partials/editProfile.html">Edit Profile</a></li>
+                    </ul>
+                    <ul class="nav pull-right" ng-hide="isAuthenticated()">
+                        <li><a href="partials/login.html">Login</a></li>
+                        <li><a href="partials/directives/eventThumbnail.html">Register</a></li>
+
+                    </ul>
+
+                </div><div>
+                <div ng-view style="padding-left:20px; padding-right:20px"></div>
+
+                <h1><center><img alt="my web page" src="http://fc07.deviantart.net/fs70/i/2012/249/c/a/welcome_to_my_page_texto_by_lady_aimee_valentine-d5dt5rd.png"/></center></h1>
+
+                <hr />
+                <div>
+
+    <table class="friend">
+
+        <tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+
+            <td>{{friend.name}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.age}}</td>
+        </tr>
+    </table></div></div>
+                <div ng-view style="padding-left:20px; padding-right:20px"></div>
+
+                <img src="http://www.storylinedesign.be/wp-content/uploads/2011/07/home-slider-horses.jpg" style=" width: 100%;"/>
+
+</div>
+            <hr/> <h3>Sessions</h3>
+
+            Order By:
+            <select ng-model="sortorder" class="input-small">
+                <option selected value="name">Name</option>
+                <option value="upVoteCount">Votes</option>
+            </select>
+            Show:
+            <select ng-model="query" class="input-medium">
+                <option selected value="">All</option>
+                <option value="Abi">Excellent</option>
+                <option value="Meers">Good</option>
+                <option value="Neenu">Bad</option>
+            </select>
+        </div></div>
+</div>
+<script>
+    function EventController($scope) {
+        $scope.friends =
+                [{name:'John', phone:'555-1212', age:10},
+                    {name:'Mary', phone:'555-9876', age:19},
+                    {name:'Mike', phone:'555-4321', age:21},
+                    {name:'Adam', phone:'555-5678', age:35},
+                    {name:'Julie', phone:'555-8765', age:29}]
+        $scope.predicate = '-age';
+    }
+</script>
+
+
+<script src="/lib/jquery/jquery.1.10.1.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="/lib/angular/angular-resource.js"></script>
+<script src="/lib/underscore/underscore-1.4.4.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/services/authentication.js"></script>
+<script src="/js/services/EventData.js"></script>
+<script src="/js/services/eventResource.js"></script>
+<script src="/js/services/ExceptionHandler.js"></script>
+<script src="/js/services/GravatarUrlBuilder.js"></script>
+<script src="/js/services/userData.js"></script>
+<script src="/js/services/userResource.js"></script>
+<script src="/js/services/calendarHelper.js"></script>
+<script src="/js/controllers/EditEventController.js"></script>
+<script src="/js/controllers/EditProfileController.js"></script>
+<script src="/js/controllers/EditSessionController.js"></script>
+<script src="/js/controllers/EventController.js"></script>
+<script src="/js/controllers/EventListController.js"></script>
+<script src="/js/controllers/LoginController.js"></script>
+<script src="/js/controllers/MainMenuController.js"></script>
+<script src="/js/controllers/SampleDirectiveController.js"></script>
+<script src="/js/controllers/ViewProfileController.js"></script>
+<script src="/js/directives/datePicker.js"></script>'
+<script src="/js/directives/dateKeys.js"></script>
+<script src="/js/directives/enterTarget.js"></script>
+<script src="/js/directives/eventDetails.js"></script>
+<script src="/js/directives/eventThumbnail.js"></script>
+<script src="/js/directives/collapsible.js"></script>
+<script src="/js/directives/focus.js"></script>
+<script src="/js/directives/gravatar.js"></script>
+<script src="/js/directives/ngBlur.js"></script>
+<script src="/js/directives/ngFocus.js"></script>
+<script src="/js/directives/sessionThumbnail.js"></script>
+<script src="/js/directives/mySample.js"></script>
+<script src="/js/directives/upVote.js"></script>
+<script src="/js/filters.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

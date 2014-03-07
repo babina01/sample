@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link type="image/x-icon" rel="icon" href="img/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="css/bg.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container" style="width: 1180px; background-color: #ddd;">
+    <div class="navbar">
+        <div class="navbar-pills">
+            <ul class="nav">
+            </ul>
+            <div class="bg-color" ng-controller="EventController">
+                <div class="navbar" ng-controller="MainMenuController">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li><a href="partials/directives/eventDetails.html">Events</a></li>
+                            <li><a href="partials/editEvent.html">Create Event</a></li>
+                            <li><a href="partials/editProfile.html">Edit Profile</a></li>
+                        </ul>
+                        <ul class="nav pull-right" ng-hide="isAuthenticated()">
+                            <li><a href="partials/login.html">Login</a></li>
+                            <li><a href="partials/directives/eventThumbnail.html">Register</a></li>
+
+                        </ul>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+         </div>
+
+                <div ng-view style="padding-left:20px; padding-right:20px"></div>
+
+                    <h1><center><img alt="my web page" src="http://fc07.deviantart.net/fs70/i/2012/249/c/a/welcome_to_my_page_texto_by_lady_aimee_valentine-d5dt5rd.png"/></center></h1>
+
+                <hr />
+    <div ng-controller="Ctrl">
+        <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+        <hr/>
+        [ <a href="" ng-click="predicate=''">unsorted</a> ]
+        <table class="friend">
+            <tr>
+                <th><a href="" ng-click="predicate = 'name'; reverse=false">Name</a>
+                    (<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)</th>
+                <th><a href="" ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</a></th>
+                <th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
+            </tr>
+            <tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+                <td>{{friend.name}}</td>
+                <td>{{friend.phone}}</td>
+                <td>{{friend.age}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+    </div>
+                    <img src="http://www.storylinedesign.be/wp-content/uploads/2011/07/home-slider-horses.jpg" style=" width: 100%;"/>
+
+               <hr/> <h3>Sessions</h3>
+
+             Order By:
+                <select ng-model="sortorder" class="input-small">
+                    <option selected value="name">Name</option>
+                    <option value="upVoteCount">Votes</option>
+                </select>
+                Show:
+                <select ng-model="query" class="input-medium">
+                    <option selected value="">All</option>
+                    <option value="Abi">Excellent</option>
+                    <option value="Meers">Good</option>
+                    <option value="Neenu">Bad</option>
+                </select>
+</div>
+<script>
+    function Ctrl($scope) {
+        $scope.friends =
+                [{name:'John', phone:'555-1212', age:10},
+                    {name:'Mary', phone:'555-9876', age:19},
+                    {name:'Mike', phone:'555-4321', age:21},
+                    {name:'Adam', phone:'555-5678', age:35},
+                    {name:'Julie', phone:'555-8765', age:29}];
+        $scope.predicate = '-age';
+    }
+</script>
+
+
+
+
+</body>
+</html>
